@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "UntlsnCSS - My presets for unocss",
   "main": "index.js",
-  "scripts": {
-  },
-  "keywords": ["unocss", "tailwindcss", "untlsn"],
+  "scripts": {},
+  "keywords": [
+    "unocss",
+    "tailwindcss",
+    "untlsn"
+  ],
   "author": "untlsn",
   "license": "MIT",
   "devDependencies": {
@@ -18,5 +21,8 @@
   },
   "peerDependencies": {
     "unocss": "^0.55.7"
+  },
+  "dependencies": {
+    "@iconify/utils": "^2.1.9"
   }
 }
