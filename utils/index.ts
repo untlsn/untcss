@@ -58,3 +58,30 @@ type FalsyValues = false | undefined | null | '' | 0
 export function filterFalsy<T>(arr: (T | FalsyValues)[]): T[] {
 	return arr.filter(Boolean) as T[];
 }
+
+/**
+ * Convert unocss units to css units
+ * @example 4 -> 1rem
+ * @example 3/4 -> calc(3/4*100%) -> 75%
+ * @example --variable -> var(--variable)
+ * @example [--variable] -> var(--variable)
+ * @example [1/4] -> 1/4
+ * @example 5rem -> 5rem
+ */
+export function handleUnits(unit: string): string {
+	const unitAsNumber =  Number(unit);
+	// Number converted to quarter in rem
+	if (!isNaN(unitAsNumber)) return `${unitAsNumber / 4}rem`;
+	// Fraction converted to calc
+	if (unit.includes('/')) return `calc(${unit} * 100%)`;
+	// Variable handle
+	if (unit.startsWith('--')) return `var(${unit})`;
+	// Values wrapped with [] will be passed as is
+	if (unit.startsWith('[') && unit.endsWith(']')) {
+		const inside = unit.slice(1, -1);
+		// Exception is variables, because wrapping it with [] can improve readability
+		if (inside.startsWith('--')) return `var(${inside})`;
+	}
+	// Other cases will be passed as is
+	return unit;
+}
