@@ -13,7 +13,10 @@ type MyIconsOptions = {
 // My preset for icons with some metadata
 export default function myPresetIcons(options: MyIconsOptions = {}): Preset {
 	return {
-		name:    'my-icons',
+		name:  'my-icons',
+		rules: [
+			['c_', { content: '"\xa0"' }],
+		],
 		presets: [
 			presetIcons({
 				extraProperties: {
