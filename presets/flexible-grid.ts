@@ -7,6 +7,7 @@ import { handleUnits } from '../utils';
  * @example grid-cols-3_1 -> grid-template-columns: 3fr 1fr;
  * @example grid-cols-auto-4 -> grid-template-columns: repeat(4, auto);
  * @example grid-cols-fit-100 -> grid-template-columns: repeat(auto-fit, minmax(400, 1fr));
+ * @example place-items-[center-stretch] -> place-items: center stretch;
  */
 export default function presetFlexibleGrid(): Preset {
 	return {
@@ -32,6 +33,12 @@ export default function presetFlexibleGrid(): Preset {
 
 				return {
 					'grid-template-columns': `repeat(auto-fit, minmax(${handleUnits(value)}, 1fr))`,
+				};
+			}],
+			[/^place-(items|self)-\[\w+]$/, ([matcher]) => {
+				const [selector, value] = matcher.split('-[');
+				return {
+					[selector]: value.replace(/_/g, ' ').slice(0, -1),
 				};
 			}],
 		],
