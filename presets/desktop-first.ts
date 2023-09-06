@@ -1,5 +1,5 @@
-import { Preset } from "unocss";
-import { simpleVariantGuard } from "../utils/units";
+import { Preset } from 'unocss';
+import { simpleVariantGuard } from '../utils';
 
 type MediaPxMap = Record<string, number>
 
@@ -9,13 +9,13 @@ const defaultMediaPxMap  = {
 	lg:    1024 - 1,
 	xl:    1280 - 1,
 	'2xl': 1536 - 1,
-} satisfies MediaPxMap
+} satisfies MediaPxMap;
 
 type MobileFirstOptions = {
 	// Extends default mediaPxMap. Remember to subtract by 1 for consistency with mobile queries
 	extends?: Record<string, number>
 	// Disable defaultMediaPxMap
-	clear?: boolean
+	clear?:   boolean
 }
 
 /**
@@ -24,10 +24,10 @@ type MobileFirstOptions = {
  * max-lg:hidden -> @media (max-width: 1023px) { max-lg\:hidden { display: hidden } }
  */
 export default function presetDesktopFirst(options: MobileFirstOptions): Preset {
-	const mediaPxMap: MediaPxMap = Object.assign({}, options.clear || defaultMediaPxMap, options.extends)
+	const mediaPxMap: MediaPxMap = Object.assign({}, options.clear || defaultMediaPxMap, options.extends);
 
 	return {
-		name: 'desktop-first',
+		name:     'desktop-first',
 		variants: [
 			simpleVariantGuard((matcher) => {
 				const mediaPx = mediaPxMap[matcher.pureVariant];
@@ -35,9 +35,9 @@ export default function presetDesktopFirst(options: MobileFirstOptions): Preset 
 
 				return {
 					matcher: matcher.rest,
-					parent: `@media (max-width: ${mediaPx}px)`
-				}
+					parent:  `@media (max-width: ${mediaPx}px)`,
+				};
 			}, 'max-'),
-		]
-	}
+		],
+	};
 }
