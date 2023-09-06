@@ -12,7 +12,7 @@ type HocusOptions = {
 type Selector = (s: string) => string
 
 // Add hocus selector
-export default function presetHocus(options: HocusOptions): Preset {
+export default function presetHocus(options: HocusOptions = {}): Preset {
 	const selector: Selector = options.ie
 		? (v) => `${v}:hover, ${v}:focus`
 		: (v) => `${v}:is(:hover,:focus)`;
