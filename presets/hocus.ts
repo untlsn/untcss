@@ -1,7 +1,7 @@
 import { Preset } from 'unocss';
 import { simpleVariantGuard } from '../utils';
 
-type HocusOptions = {
+export type HocusOptions = {
 	/**
 	 * Use double selector instead of :is selector for ie11 support
 	 * @warning old selector disable changing

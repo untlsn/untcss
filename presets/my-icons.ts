@@ -1,7 +1,7 @@
 import { Preset, presetIcons } from 'unocss';
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
 
-type MyIconsOptions = {
+export type MyIconsOptions = {
 	/**
 	 * Source of icons starting with my
 	 * @default './src/assets/icons'

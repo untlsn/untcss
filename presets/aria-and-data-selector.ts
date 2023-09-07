@@ -1,7 +1,7 @@
 import { Preset } from 'unocss';
 import { filterFalsy, simpleVariantGuard } from '../utils';
 
-type AriaAndDataSelectorOptions = {
+export type AriaAndDataSelectorOptions = {
 	// Disable group selectors
 	disableGroupSelectors?: boolean
 }
