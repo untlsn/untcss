@@ -1,6 +1,6 @@
 {
   "name": "untcss",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UntlsnCSS - My presets for unocss",
   "main": "index.js",
   "scripts": {},
