@@ -1,8 +1,9 @@
 {
   "name": "untcss",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "UntlsnCSS - My presets for unocss",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
     "build:bun": "bun --bun tsup"
