@@ -1,5 +1,5 @@
 import { Preset } from 'unocss';
-import { simpleVariantGuard } from '../utils';
+import { simpleVariantGuard } from '~/utils';
 
 export type HocusOptions = {
 	/**

@@ -1,5 +1,5 @@
 import { Preset } from 'unocss';
-import { handleUnits } from '../utils';
+import { handleUnits } from '~/utils';
 
 
 /**

@@ -3,7 +3,10 @@
   "version": "1.0.2",
   "description": "UntlsnCSS - My presets for unocss",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsup",
+    "build:bun": "bun --bun tsup"
+  },
   "keywords": [
     "unocss",
     "tailwindcss",
@@ -17,12 +20,13 @@
     "eslint": "^8.47.0",
     "eslint-plugin-only-warn": "^1.1.0",
     "typescript": "^5.2.2",
-    "unocss": "^0.55.7"
+    "unocss": "^0.55.7",
+    "@iconify/utils": "^2.1.9",
+    "tsup": "^7.2.0"
   },
   "peerDependencies": {
+    "@iconify/utils": "^2.1.9",
     "unocss": "^0.55.7"
   },
-  "dependencies": {
-    "@iconify/utils": "^2.1.9"
-  }
+  "dependencies": {}
 }

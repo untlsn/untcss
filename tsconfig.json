@@ -6,11 +6,9 @@
 		"module": "ESNext",
 		"noImplicitAny": false,
 		"moduleResolution": "node",
-		"jsxImportSource": "solid-js",
 		"allowJs": true,
-		"jsx": "preserve",
 		"strict": true,
-		"types": ["solid-start/env"],
+		"types": ["bun-types"],
 		"baseUrl": "./",
 		"paths": {
 			"~/*": ["./src/*"]
