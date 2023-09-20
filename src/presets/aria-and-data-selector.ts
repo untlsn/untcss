@@ -13,18 +13,26 @@ export default function presetAriaAndDataSelector(options: AriaAndDataSelectorOp
 	return {
 		name:     'aria-and-data-selector',
 		variants: filterFalsy([
-			simpleVariantGuard((matcher) => ({
-				selector: matcher.insideSquareBrackets
-					? (s) => `${s}[${matcher.pureVariant}="${matcher.insideSquareBrackets}"]`
-					: (s) => `${s}[${matcher.pureVariant}]`,
-				matcher: matcher.rest,
-			}), ['aria-', 'data-']),
-			!options.disableGroupSelectors && simpleVariantGuard((matcher) => ({
-				selector: matcher.insideSquareBrackets
-					? (s) => `.group[${matcher.pureVariant}="${matcher.insideSquareBrackets}"] ${s}`
-					: (s) => `.group[${matcher.pureVariant}] ${s}`,
-				matcher: matcher.rest,
-			}), ['group-aria-', 'group-data-']),
+			simpleVariantGuard((matcher) => {
+				const variant = `data-${matcher.pureVariant}`;
+
+				return {
+					selector: matcher.insideSquareBrackets
+						? (s) => `${s}[${variant}="${matcher.insideSquareBrackets}"]`
+						: (s) => `${s}[${variant}]`,
+					matcher: matcher.rest,
+				};
+			}, ['aria-', 'data-']),
+			!options.disableGroupSelectors && simpleVariantGuard((matcher) => {
+				const variant = `data-${matcher.pureVariant}`;
+
+				return {
+					selector: matcher.insideSquareBrackets
+						? (s) => `.group[${variant}="${matcher.insideSquareBrackets}"] ${s}`
+						: (s) => `.group[${variant}] ${s}`,
+					matcher: matcher.rest,
+				};
+			}, ['group-aria-', 'group-data-']),
 		]),
 	};
 }
