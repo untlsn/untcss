@@ -1,6 +1,6 @@
 {
   "name": "untcss",
-  "version": "1.0.5",
+  "version": "1.1.3",
   "description": "UntlsnCSS - My presets for unocss",
   "scripts": {
     "build": "tsup",

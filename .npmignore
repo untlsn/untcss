@@ -1,0 +1,10 @@
+node_modules
+src
+.eslintignore
+.eslintrc.yml
+.gitignore
+bun.lockb
+pnpm-lock.yaml
+tsconfig.json
+tsup.config.ts
+.idea
