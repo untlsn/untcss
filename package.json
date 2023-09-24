@@ -2,11 +2,16 @@
   "name": "untcss",
   "version": "1.0.5",
   "description": "UntlsnCSS - My presets for unocss",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup",
     "build:bun": "bun --bun tsup"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./reset": "./style/reset.css"
   },
   "keywords": [
     "unocss",
