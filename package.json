@@ -1,6 +1,6 @@
 {
   "name": "untcss",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "UntlsnCSS - My presets for unocss",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,8 +29,5 @@
   "peerDependencies": {
     "@iconify/utils": "^2.1.9",
     "unocss": "^0.56.1"
-  },
-  "dependencies": {
-    "untcss-reset": "^1.0.0"
   }
 }
