@@ -23,8 +23,8 @@ export default function presetHocus(options: HocusOptions = {}): Preset {
 			simpleVariantGuard((matcher) => ({
 				matcher:  matcher.rest,
 				selector: options.ie
-					? (v) => `group:hover ${v}, group:focus ${v}`
-					: (v) => `group:is(:hover,:focus) ${v}`,
+					? (v) => `.group:hover ${v}, group:focus ${v}`
+					: (v) => `.group:is(:hover,:focus) ${v}`,
 			}), 'group-hocus:'),
 		],
 	};
