@@ -9,21 +9,23 @@ export type HocusOptions = {
 	ie?: boolean,
 }
 
-type Selector = (s: string) => string
-
 // Add hocus selector
 export default function presetHocus(options: HocusOptions = {}): Preset {
-	const selector: Selector = options.ie
-		? (v) => `${v}:hover, ${v}:focus`
-		: (v) => `${v}:is(:hover,:focus)`;
-
 	return {
 		name:     'hocus',
 		variants: [
 			simpleVariantGuard((matcher) => ({
-				matcher: matcher.rest,
-				selector,
+				matcher:  matcher.rest,
+				selector: options.ie
+					? (v) => `${v}:hover, ${v}:focus`
+					: (v) => `${v}:is(:hover,:focus)`,
 			}), 'hocus:'),
+			simpleVariantGuard((matcher) => ({
+				matcher:  matcher.rest,
+				selector: options.ie
+					? (v) => `group:hover ${v}, group:focus ${v}`
+					: (v) => `group:is(:hover,:focus) ${v}`,
+			}), 'group-hocus:'),
 		],
 	};
 }
