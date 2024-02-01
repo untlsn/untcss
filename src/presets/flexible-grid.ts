@@ -8,10 +8,14 @@ function typeToTemplateName(type: string) {
 
 /**
  * Add more flexible grid layouts
- * @example grid-cols-3_1 -> grid-template-columns: 3fr 1fr;
- * @example grid-cols-auto-4 -> grid-template-columns: repeat(4, auto);
- * @example grid-cols-fit-100 -> grid-template-columns: repeat(auto-fit, minmax(400, 1fr));
- * @example place-items-[center_stretch] -> place-items: center stretch;
+ * @example
+ * grid-cols-3_1 -> grid-template-columns: 3fr 1fr;
+ * grid-rows-3_1 -> grid-template-rows: 3fr 1fr;
+ * grid-cols-auto-4 -> grid-template-columns: repeat(4, auto);
+ * grid-rows-auto-4 -> grid-template-rows: repeat(4, auto);
+ * grid-cols-fit-100 -> grid-template-columns: repeat(auto-fit, minmax(400, 1fr));
+ * grid-rows-fit-100 -> grid-template-rows: repeat(auto-fit, minmax(400, 1fr));
+ * place-items-[center_stretch] -> place-items: center stretch;
  */
 export default function presetFlexibleGrid(): Preset {
 	return {
