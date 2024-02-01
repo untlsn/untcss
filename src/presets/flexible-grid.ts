@@ -1,6 +1,10 @@
 import { Preset } from 'unocss';
 import { handleUnits } from '~/utils';
 
+function typeToTemplateName(type: string) {
+	if (type == 'rows') return 'grid-template-rows';
+	return 'grid-template-columns';
+}
 
 /**
  * Add more flexible grid layouts
@@ -14,19 +18,19 @@ export default function presetFlexibleGrid(): Preset {
 		name:  'flexible-grid',
 		rules: [
 			/** grid-cols-3_1 is equal to grid-cols-[3fr_1fr] */
-			[/^grid-cols-([\d_]{3,})$/, ([,numbers]) => {
+			[/^grid-(cols|rows)-([\d_]{3,})$/, ([,type, numbers]) => {
 				const values = numbers.replaceAll('_', 'fr ');
 				return {
-					'grid-template-columns': `${values}fr`,
+					[typeToTemplateName(type)]: `${values}fr`,
 				};
 			}],
 			/** grid-cols-auto-4 is equal to grid-cols-[auto_auto_auto_auto] */
-			[/^grid-cols-auto-(\d+)$/, ([,value]) => ({
-				'grid-template-columns': `repeat(${value}, auto)`,
+			[/^grid-(cols|rows)-auto-(\d+)$/, ([,type, value]) => ({
+				[typeToTemplateName(type)]: `repeat(${value}, auto)`,
 			})],
 			/** @example grid-cols-fit-100 -> grid-template-columns: repeat(auto-fit, minmax(400, 1fr)); */
-			[/^grid-cols-fit-(\S+)$/, ([,value]) => ({
-				'grid-template-columns': `repeat(auto-fit, minmax(${handleUnits(value)}, 1fr))`,
+			[/^grid-(cols|rows)-fit-(\S+)$/, ([,type, value]) => ({
+				[typeToTemplateName(type)]: `repeat(auto-fit, minmax(${handleUnits(value)}, 1fr))`,
 			})],
 			[/^place-(items|self)-\[(\w+)_(\w+)]$/, ([,type, first, second]) => ({
 				[`place-${type}`]: `${first} ${second}`,
