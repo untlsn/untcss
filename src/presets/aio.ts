@@ -1,4 +1,4 @@
-import { Preset } from 'unocss';
+import { PresetOrFactory } from 'unocss';
 import * as presets from './index';
 import presetRemToPx, { RemToPxOptions } from '@unocss/preset-rem-to-px';
 
@@ -10,16 +10,13 @@ type AioOptions = {
 }
 
 // All my presets bundled to one
-export default function presetAio(options: AioOptions = {}): Preset {
-	return {
-		name:    'untcss-aio',
-		presets: [
-			presets.presetAriaAndDataSelector(options.ariaAndDataSelector),
-			presets.presetHocus(options.hocus),
-			presets.myPresetIcons(options.myIcons),
-			presets.presetFlexibleGrid(),
-			presets.presetSizeShortcut(),
-			presetRemToPx(options.remToPx),
-		],
-	};
+export default function presetAio(options: AioOptions = {}): PresetOrFactory<any>[] {
+	return [
+		presets.presetAriaAndDataSelector(options.ariaAndDataSelector),
+		presets.presetHocus(options.hocus),
+		presets.myPresetIcons(options.myIcons),
+		presets.presetFlexibleGrid(),
+		presets.presetSizeShortcut(),
+		presetRemToPx(options.remToPx),
+	];
 }

@@ -5,7 +5,7 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"noImplicitAny": false,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"allowJs": true,
 		"strict": true,
 		"baseUrl": "./",

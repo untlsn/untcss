@@ -17,7 +17,7 @@ function typeToTemplateName(type: string) {
  * grid-rows-fit-100 -> grid-template-rows: repeat(auto-fit, minmax(400, 1fr));
  * place-items-[center_stretch] -> place-items: center stretch;
  */
-export default function presetFlexibleGrid(): Preset {
+export default function presetFlexibleGrid(): Preset<any> {
 	return {
 		name:  'flexible-grid',
 		rules: [

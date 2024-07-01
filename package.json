@@ -1,11 +1,23 @@
 {
-  "name": "untlsn-unocss",
-  "version": "0.0.7",
+  "name": "@un-tlsn/unocss",
+  "version": "0.1.0",
   "description": "UntlsnCSS - My presets for unocss",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "pub": "tsup && npm publish --access public"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./reset": {
+      "default": "./reset.css"
+    }
   },
   "keywords": [
     "unocss",
@@ -16,19 +28,19 @@
   "author": "untlsn",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
-    "eslint": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^9.6.0",
     "eslint-plugin-only-warn": "^1.1.0",
-    "typescript": "^5.2.2",
-    "unocss": "^0.56.5",
-    "@iconify/utils": "^2.1.11",
-    "tsup": "^7.2.0",
-    "@unocss/preset-rem-to-px": "^0.56.5"
+    "typescript": "^5.5.2",
+    "unocss": "^0.61.0",
+    "@iconify/utils": "^2.1.25",
+    "tsup": "^8.1.0",
+    "@unocss/preset-rem-to-px": "^0.61.0"
   },
   "peerDependencies": {
-    "@iconify/utils": "^2.1.9",
-    "unocss": "^0.56.5",
-    "@unocss/preset-rem-to-px": "^0.56.5"
+    "@iconify/utils": "^2.1.25",
+    "unocss": "^0.61.0",
+    "@unocss/preset-rem-to-px": "^0.61.0"
   }
 }
