@@ -9,7 +9,7 @@ export type AriaAndDataSelectorOptions = {
 /**
  * Add selectors for aria and data attrs
  */
-export default function presetAriaAndDataSelector(options: AriaAndDataSelectorOptions = {}): Preset<any> {
+export function presetAriaAndDataSelector(options: AriaAndDataSelectorOptions = {}): Preset<any> {
 	return {
 		name:     'aria-and-data-selector',
 		variants: filterFalsy([

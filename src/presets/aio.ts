@@ -10,13 +10,14 @@ type AioOptions = {
 }
 
 // All my presets bundled to one
-export default function presetAio(options: AioOptions = {}): PresetOrFactory<any>[] {
+export function presetAio(options: AioOptions = {}): PresetOrFactory<any>[] {
 	return [
 		presets.presetAriaAndDataSelector(options.ariaAndDataSelector),
 		presets.presetHocus(options.hocus),
 		presets.myPresetIcons(options.myIcons),
 		presets.presetFlexibleGrid(),
 		presets.presetSizeShortcut(),
+		presets.presetImages(),
 		presetRemToPx(options.remToPx),
 	];
 }

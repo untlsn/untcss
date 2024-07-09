@@ -11,7 +11,7 @@ export type MyIconsOptions = {
 }
 
 // My preset for icons with some metadata
-export default function myPresetIcons(options: MyIconsOptions = {}): Preset<any> {
+export function myPresetIcons(options: MyIconsOptions = {}): Preset<any> {
 	return {
 		name:  'my-icons',
 		rules: [

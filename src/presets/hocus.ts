@@ -10,7 +10,7 @@ export type HocusOptions = {
 }
 
 // Add hocus selector
-export default function presetHocus(options: HocusOptions = {}): Preset<any> {
+export function presetHocus(options: HocusOptions = {}): Preset<any> {
 	return {
 		name:     'hocus',
 		variants: [

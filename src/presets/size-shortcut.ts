@@ -8,7 +8,7 @@ import { Preset } from 'unocss';
  * max-size-4rem -> min-height-4rem min-width-4rem
  * size-50v -> height-50vh width-50vw
  */
-export default function presetSizeShortcut(): Preset<any> {
+export function presetSizeShortcut(): Preset<any> {
 	return {
 		name:      'size-shortcut',
 		shortcuts: [
