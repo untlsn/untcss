@@ -5,4 +5,4 @@ export {
 	presetSizeShortcut,
 	myPresetIcons,
 } from './presets';
-export { default as presetAio } from './presets/aio';
+export { presetAio } from './presets/aio';

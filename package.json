@@ -1,6 +1,6 @@
 {
   "name": "@un-tlsn/unocss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "UntlsnCSS - My presets for unocss",
   "scripts": {
     "build": "tsup",
